@@ -1,1 +1,4 @@
 glove.840B.300d.txt
+src/__pycache__/embedding_handler.cpython-35.pyc
+src/__pycache__/model.cpython-35.pyc
+src/__pycache__/preprocess.cpython-35.pyc
