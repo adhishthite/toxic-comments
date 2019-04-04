@@ -8,7 +8,7 @@ def predict(text_list):
     
     MAX_LENGTH = 150
     print(text_list)
-    model = load_model('../models/model_1.h5')
+    model = load_model('../models/new_model.h5')
 
     with open("../data/word_index.pkl","rb") as fp:
         word_index = pickle.load(fp)
