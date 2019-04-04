@@ -12,7 +12,7 @@ def train():
     MAX_LENGTH = 150
 
     print("READING FILES\n")
-    train = pd.read_csv('data/train.csv')
+    train = pd.read_csv('../data/train.csv')
 
     # train = train.head(200)
 
@@ -23,7 +23,7 @@ def train():
     word_index = create_word_index(seqs)
 
     print("STORING WORD INDEX\n")
-    with open("data/word_index.pkl","wb") as fp:
+    with open("../data/word_index.pkl","wb") as fp:
         pickle.dump(word_index,fp)
 
     print("CREATING WORD SEQS\n")
@@ -55,7 +55,7 @@ def train():
 
     hist = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_val, y_val), verbose=1)
 
-    model.save('models/new_model.h5')
+    model.save('../models/new_model.h5')
 
 if __name__ == "__main__":
     train()

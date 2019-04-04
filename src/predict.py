@@ -9,10 +9,10 @@ def predict(text_list):
     
     MAX_LENGTH = 150
 
-    model = load_model('models/new_model.h5')
+    model = load_model('../models/new_model.h5')
     plot_model(model, to_file='model.png', show_layer_names=False)
 
-    with open("data/word_index.pkl","rb") as fp:
+    with open("../data/word_index.pkl","rb") as fp:
         word_index = pickle.load(fp)
 
     seqs = [normalize(text) for text in text_list]
@@ -30,7 +30,6 @@ if __name__ == "__main__":
 
     text_list.append('FUCK YOU ASSHOLE')
     text_list.append('hope everything is going great')
-    text_list.append('Bang your mom')
     
     predictions = predict(text_list)
 
