@@ -7,7 +7,7 @@ def get_coef(word, *coefs):
 def create_embedding_dict():
     
     print("CREATING EMBEDDING DICT\n")
-    EMBEDDING_FILE_PATH = 'data/glove.840B.300d.txt'
+    EMBEDDING_FILE_PATH = '../data/glove.840B.300d.txt'
     embedding_dict = dict(get_coef(*s.strip().split(" ")) for s in open(EMBEDDING_FILE_PATH))
 
     return embedding_dict
