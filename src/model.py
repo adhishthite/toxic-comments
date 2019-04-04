@@ -10,7 +10,7 @@ def get_model(input_shape, MAX_WORDS, embeding_matrix, MAX_LENGTH=150, EMBED_SIZ
     input = Input(shape = input_shape, name='InputLayer')
 
     x = Embedding(MAX_WORDS+1, EMBED_SIZE, weights=[embeding_matrix], trainable=False)(input)
-    x = SpatialDropout1D(rate = 0.8)(x)
+    x = SpatialDropout1D(rate = 0.5)(x)
     x = Bidirectional(GRU(MAX_LENGTH, return_sequences=True))(x)
     x = Conv1D(64, kernel_size = 2, padding = "valid", kernel_initializer = "glorot_uniform")(x)
     

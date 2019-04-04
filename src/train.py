@@ -2,10 +2,12 @@ import numpy as np
 import pandas as pd
 from keras.preprocessing.sequence import pad_sequences
 import pickle
+from keras.utils import plot_model
 
 from preprocess import normalize, create_word_index, text_to_sequence
 from embedding_handler import create_embedding_matrix
 from model import get_model
+
 
 def train():
 
@@ -56,6 +58,11 @@ def train():
     hist = model.fit(X_train, y_train, batch_size=batch_size, epochs=epochs, validation_data=(X_val, y_val), verbose=1)
 
     model.save('../models/new_model.h5')
+    
+    try:
+        plot_model(model, to_file='model.png', show_layer_names=False)
+    except:
+        pass
 
 if __name__ == "__main__":
     train()

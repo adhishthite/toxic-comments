@@ -55,6 +55,7 @@ def create_word_index(text_list):
     w_counts = list(word_counts.items())
     w_counts.sort(key=lambda x: x[1], reverse=True)
     
+    sorted_voc = [wc[0] for wc in wcounts if wc[1]>=3]
     sorted_voc = [wc[0] for wc in w_counts]
     
     word_index = dict(list(zip(sorted_voc, list(range(1, len(sorted_voc) + 1)))))
