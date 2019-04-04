@@ -7,18 +7,13 @@ import pickle
 def predict(text_list):
     
     MAX_LENGTH = 150
-    print(text_list)
     model = load_model('../models/new_model.h5')
 
     with open("../data/word_index.pkl","rb") as fp:
         word_index = pickle.load(fp)
 
     seqs = [normalize(text) for text in text_list]
-    print(seqs)
-
     test_words = [text_to_sequence(seq, word_index) for seq in seqs]
-    print(test_words)
-    
     test_words = pad_sequences(test_words, maxlen=MAX_LENGTH)
 
     y_pred = model.predict(test_words, batch_size=1024)
