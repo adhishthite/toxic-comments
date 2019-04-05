@@ -1,4 +1,4 @@
 Flask==1.0.2
 Keras==2.2.4
 nltk==3.4
-tensorflow
+tensorflow==1.12.0

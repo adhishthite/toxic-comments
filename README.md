@@ -18,15 +18,15 @@ Since this is a Natural Language Processing task, a considerable amount of data 
 
 ## Pretrained Word Vectors - _GloVe_
 
-_GloVe is an unsupervised learning algorithm for obtaining vector representations for words. Training is performed on aggregated global word-word co-occurrence statistics from a corpus, and the resulting representations showcase interesting linear substructures of the word vector space._ - (Stanford NLP)
+_`GloVe` is an unsupervised learning algorithm for obtaining vector representations for words. Training is performed on aggregated global word-word co-occurrence statistics from a corpus, and the resulting representations showcase interesting linear substructures of the word vector space._ - (Stanford NLP)
 
-I used GloVe's pre-trained word vectors.
+I used `GloVe`'s pre-trained word vectors.
 
 ## Model
 
-NLP tasks require contextual understanding, thus making the use of RNNs/GRUs/LSTMs natural.
+NLP tasks require contextual understanding, thus making the use of `RNN`s/`GRU`s/`LSTM`s natural.
 
-Also, recent developments in Deep Learning have shown that the use of 1-d CNNs helps the feature understanding of the Neural Network.
+Also, recent developments in Deep Learning have shown that the use of `1-d CNN`s helps the feature understanding of the Neural Network.
 
 I used a combination of GRU and CNN for this task. Here's the model architecture - 
 
@@ -40,4 +40,29 @@ The model performed pretty well on the training data with an accuracy of **98%**
 
 Thus, the model is not overfitting to the training data.
 
-## 
+_Since the training of this model is a huge task, I was not able to get the graphs of the accuracy and loss. However, will train the model again and upload the graphs._
+
+#### The model has achieved an accuracy of 98.2% on the test data - which puts this model in the top 20 scores of Kaggle. 
+
+## Model Deployment
+
+Only training a model is not enough, it has to be deployed so that people can use it.
+
+I've used _Flask_ to build a small UI (work in progress) to deploy this model.
+
+The model is containerized with Docker and deployed on Microsoft Azure.
+
+The API has been designed to accept `GET` and `POST` requests so that it is easily accessible from everywhere.
+
+**The inference time is less than 20ms making this model extremely quick to determine the factors of toxicity in the text.**
+
+## Snapshots
+
+#### Positive Speech
+
+![image](data/positive.png)
+
+
+#### Negative Speech
+
+![image](data/negative.png)
