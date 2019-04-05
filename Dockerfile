@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.7-alpine
+FROM python:3.7
 
 COPY requirements.txt /app/requirements.txt
 
@@ -7,8 +7,8 @@ COPY requirements.txt /app/requirements.txt
 WORKDIR /app
 
 # Install any needed packages specified in requirements.txt
-RUN apt-get install build-essential python-dev
-RUN pip install -U pip
+# RUN apt-get install build-essential python-dev
+# # RUN pip install -U pip
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Copy the current directory contents into the container at /app
