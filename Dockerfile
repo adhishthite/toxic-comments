@@ -7,6 +7,9 @@ COPY requirements.txt /app/requirements.txt
 WORKDIR /app
 
 # Install any needed packages specified in requirements.txt
+RUN apt-get -y install libc-dev
+RUN apt-get -y install build-essential
+RUN pip install -U pip
 RUN pip install --trusted-host pypi.python.org -r requirements.txt
 
 # Copy the current directory contents into the container at /app
